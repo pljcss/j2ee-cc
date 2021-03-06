@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 级联赋值 -->
+    <bean id="emp2" class="com.iocdemo.xml.bean.Emp">
+        <!-- 设置两个普通属性 -->
+         <property name="eName" value="张三"></property>
+         <property name="gender" value="女"></property>
+
+        <!-- 级联赋值方式1, ref到外部bean -->
+         <property name="dept" ref="dept2"></property>
+
+        <!-- 级联赋值方式2, 需要dept有get方法 -->
+        <property name="dept.dName" value="财务部"></property>
+    </bean>
+
+    <!-- 级联赋值方式1, ref到外部bean -->
+    <bean id="dept2" class="com.iocdemo.xml.bean.Dept">
+        <property name="dName" value="Java部门"></property>
+    </bean>
+
+</beans>

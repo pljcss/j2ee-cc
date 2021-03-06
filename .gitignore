@@ -1,0 +1,43 @@
+/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+mvnw
+mvnw.cmd
+.mvn/
+src/test/
+log.log
+/logtest/
+/test/
+
+/out/
+
+
+/mybatis-cc/target/
+/mybatis-web/target/
+/servlet-cc/target/
+/spring5-cc/target/
+/springboot-adminlte/target/
+/springboot-cc/target/
+/springboot-cc2/target/
+/springmvc5-annotation/target/
+/springmvc-cc/target/

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+
+    <select id="getAllStudent" resultType="com.mybatis.domain.Student">
+        select
+            id, name, subject_id as subjectId
+        from
+            student;
+    </select>
+
+    <!-- parameterType是参数类型，专门负责给SQL语句传值 -->
+    <!-- resultType是查询结果集的类型，只有在select语句中才有 -->
+    <select id="selectById" parameterType="java.lang.String" resultType="com.mybatis.domain.Student">
+        select
+            id, name, subject_id as subjectId
+        from
+            student
+        where
+            id=#{id}
+    </select>
+
+    <!-- 使用Map封装返回结果 -->
+    <select id="selectAll" resultType="Map">
+        select
+            id, name, subject_id as subjectId
+        from
+            student;
+    </select>
+
+    <!-- parameterType属性用来专门给sql语句中的占位符传值
+         javabean给占位符传值的时候，程序员要告诉mybatis javabean的哪个属性传到哪个占位符上
+         mybatis的占位符不能使用?, 必须使用#{} , 并且#{这里需要编写javabean的属性名}
+    -->
+    <insert id="insertStudent" parameterType="com.mybatis.domain.Student">
+        insert into
+            student(id,name,subject_id)
+        values (#{id}, #{name}, #{subjectId});
+    </insert>
+
+    <!--使用map集合给占位符传值-->
+    <insert id="insertStudentByMap" parameterType="Map">
+        insert into
+            student(id,name,subject_id)
+        values (#{idMap}, #{nameMap}, #{subjectIdMap});
+    </insert>
+
+    <update id="updateStudent">
+        update student set
+            name=#{name}, subject_id=#{subjectId}
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from student where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 集合类型属性注入 -->
+    <bean id="student" class="com.iocdemo.xml.collectiondi.Student">
+        <!-- 数组类型属性注入 -->
+        <property name="courses">
+            <array>
+                <value>语文</value>
+                <value>数学</value>
+                <value>英语</value>
+            </array>
+        </property>
+
+        <!-- List类型属性注入 -->
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+                <value>list3</value>
+            </list>
+        </property>
+
+        <!-- Map类型属性注入 -->
+        <property name="map">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="HELLO" value="hello"></entry>
+                <entry key="WORLD" value="world"></entry>
+            </map>
+        </property>
+
+        <!-- Set类型属性注入 -->
+        <property name="set">
+            <set>
+                <value>Mysql</value>
+                <value>Redis</value>
+                <value>HBase</value>
+            </set>
+        </property>
+
+        <!-- List类型属性注入，值为对象 -->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+
+    </bean>
+    <!-- 创建多个Course对象 -->
+    <bean id="course1" class="com.iocdemo.xml.collectiondi.Course">
+        <property name="courseName" value="物理"></property>
+    </bean>
+    <bean id="course2" class="com.iocdemo.xml.collectiondi.Course">
+        <property name="courseName" value="化学"></property>
+    </bean>
+
+</beans>

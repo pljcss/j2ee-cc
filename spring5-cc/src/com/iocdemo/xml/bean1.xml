@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置User对象创建 -->
+    <bean id="user" class="com.iocdemo.xml.User" scope="prototype">
+
+    </bean>
+
+    <!-- 1、配置Book对象创建 -->
+    <bean id="book" class="com.iocdemo.xml.Book">
+        <!-- 2、set方法注入属性，使用property完成属性注入 -->
+        <property name="bookName" value="Java编程思想"></property>
+        <property name="bookAuthor" value="马克思"></property>
+
+        <!-- 注入null值 -->
+        <property name="address">
+            <null/>
+        </property>
+
+        <!-- 属性值中包含特殊符号，比如<>
+            1、把<>进行转义，&lt; &gt;
+            2、把带特殊符号内容写到 CDATA
+        -->
+        <property name="bookType">
+            <value><![CDATA[<<计算机类型>>]]></value>
+        </property>
+    </bean>
+
+
+    <!-- 2、有参构造器注入属性 -->
+    <bean id="book2" class="com.iocdemo.xml.Book2">
+        <constructor-arg name="bookName" value="Spring实战"></constructor-arg>
+        <constructor-arg name="bookAuthor" value="司马迁"></constructor-arg>
+    </bean>
+
+</beans>

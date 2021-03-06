@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 提取List集合类型 -->
+    <util:list id="movieList">
+        <value>肖申克的救赎</value>
+        <value>让子弹飞</value>
+        <value>星际穿越</value>
+    </util:list>
+
+    <!-- 使用提取出来的List集合类型 -->
+    <bean id="movie" class="com.iocdemo.xml.collectiondi.Movie">
+        <property name="movieNameList" ref="movieList"></property>
+    </bean>
+
+
+</beans>
